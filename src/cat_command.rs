@@ -3,10 +3,11 @@ use string_builder::Builder;
 use textwrap::wrap;
 
 const ASCII_CAT: &str = "
-\t\t |\\__/,|   (`\\
-\t\t |_ _  |.--.) )
-\t\t ( T   )     /
-\t\t(((^_(((/(((_/
+\to
+\t o  |\\__/,|   (`\\
+\t  o |_ _  |.--.) )
+\t    ( T   )     /
+\t   (((^_(((/(((_/
 ";
 
 const MAX_LINE_LEN: usize = 40;
@@ -19,13 +20,13 @@ pub fn print_msg_box(msg: &str) {
     let max_line_len: usize = lines.iter().map(|line| line.len()).max().unwrap();
 
     let mut builder = Builder::default();
-    builder.append(format!("{}{}{}", "┏", "━".repeat(max_line_len + 2), "┓\n"));
+    builder.append(format!("{}{}{}", "╭", "─".repeat(max_line_len + 2), "╮\n"));
     lines.iter().for_each(|line| {
-        builder.append("┃ ");
+        builder.append("│ ");
         builder.append(line.as_str().pad_to_width(max_line_len));
-        builder.append(" ┃\n");
+        builder.append(" │\n");
     });
-    builder.append(format!("{}{}{}", "┗", "━".repeat(max_line_len + 2), "┛"));
+    builder.append(format!("{}{}{}", "╰", "━".repeat(max_line_len + 2), "╯"));
 
     print!("{}", builder.string().unwrap());
 }
