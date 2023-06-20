@@ -1,5 +1,5 @@
 [package]
-name = "catsay"
+name = "catdream"
 version = "0.1.0"
 edition = "2021"
 
@@ -9,3 +9,8 @@ edition = "2021"
 "string-builder" = "0.2.0"
 "pad" = "0.1.6"
 "textwrap" = "0.16.0"
+
+[[bin]]
+edition = "2021"
+name = "catdream"
+path = "src/main.rs"
